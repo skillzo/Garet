@@ -1,0 +1,10 @@
+.progressButton {
+  border: 1px solid #175cd3;
+  padding: 0.5em 1em;
+  color: #175cd3;
+}
+
+.progressButton:hover,
+.progressButton:active {
+  color: black;
+}
