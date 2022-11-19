@@ -6,6 +6,7 @@ import Hero from "./Components/Sections/Hero/Hero";
 import { UserProvider } from "./Store/Context";
 
 function App() {
+  // jefe code
   return (
     <UserProvider>
       <div className="w-full h-screen ">
