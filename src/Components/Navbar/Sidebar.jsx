@@ -31,7 +31,7 @@ function Sidebar() {
       {/* desktop */}
 
       {!isClicked ? (
-        <div className="hidden md:flex justify-between flex-col side-bar  w-[5%] h-[95vh]  py-[4em] px-[2em] lg:px-[2em] bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
+        <div className="hidden md:flex justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[95vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
           <div className="flex flex-col gap-14">
             <GridOnIcon sx={{ fontSize: 20 }} centerRipple="false" />
             <AddIcon sx={{ fontSize: 20 }} />
