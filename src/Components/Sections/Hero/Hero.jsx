@@ -5,6 +5,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./Hero.css";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
 function Hero() {
   return (
     <div className="body_main space-y-[3em] px-[1em] w-full md:w-[80%] mt-10  mx-auto">
@@ -42,8 +43,8 @@ function Hero() {
           <p>Drag and drop your file in this gray area</p>
           <p>OR</p>
           <div>
-            <button className="bg-white p-[1em] rounded-lg ">
-              Browse Files{" "}
+            <button className=" flex bg-white p-[1em] rounded-lg ">
+              Browse File <FileCopyOutlinedIcon />
             </button>
           </div>
         </div>
