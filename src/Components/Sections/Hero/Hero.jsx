@@ -8,7 +8,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
 function Hero() {
   return (
-    <div className="body_main space-y-[3em] px-[1em] w-full md:w-[80%] mt-10  mx-auto">
+    <div className="body_main space-y-[2em] px-[1em] w-full md:w-[80%] mt-10  mx-auto">
       <div className="space-y-[1em]">
         <div className="hidden md:flex">
           <CurrentNav />
