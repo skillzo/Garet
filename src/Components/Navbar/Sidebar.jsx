@@ -16,7 +16,7 @@ function Sidebar() {
       {!isClicked && (
         <div className="md:hidden flex justify-between flex-col side-bar w-[15%] md:w-[15%] h-[95vh] py-[1.5em] px-[1em] bg-[#1849A9] text-white transition-all  ease-in-out delay-200">
           <div className="flex flex-col gap-6">
-            <GridOnIcon sx={{ fontSize: 20 }} centerRipple="false" />
+            <GridOnIcon sx={{ fontSize: 20 }} />
             <AddIcon sx={{ fontSize: 20 }} />
             <StarBorderIcon sx={{ fontSize: 20 }} />
             <SettingsIcon sx={{ fontSize: 20 }} />
@@ -31,9 +31,9 @@ function Sidebar() {
       {/* desktop */}
 
       {!isClicked ? (
-        <div className="hidden md:flex justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[95vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
+        <div className="hidden to md:flex justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[95vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
           <div className="flex flex-col gap-14">
-            <GridOnIcon sx={{ fontSize: 20 }} centerRipple="false" />
+            <GridOnIcon sx={{ fontSize: 20 }} />
             <AddIcon sx={{ fontSize: 20 }} />
             <StarBorderIcon sx={{ fontSize: 20 }} />
             <SettingsIcon sx={{ fontSize: 20 }} />

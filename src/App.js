@@ -13,7 +13,7 @@ function App() {
         <div className="navbar">
           <Navbar />
         </div>
-        <div className="flex">
+        <div className="flex bg-[#F9FAFB]">
           <Sidebar />
           <Hero />
         </div>

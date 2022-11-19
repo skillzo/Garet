@@ -1,38 +1,59 @@
 import React from "react";
 import CurrentNav from "../../Navbar/CurrentNav";
 import Transactions from "../Transactions/Transactions";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./Hero.css";
-import ProgressBar from "../../Progress bar/ProgressBar";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 function Hero() {
   return (
-    <div className="flex flex-col gap-3 body_main px-[1em] w-full md:w-[80%] mt-10  mx-auto">
-      <CurrentNav />
-      <h1 className="text-[#12B76A] text-[2em] font-bold">
-        Uploaded Account Statement Ready!
-      </h1>
-      <Transactions />
-      <div className="upload flex items-center justify-center h-400 md:h-[500] w-[80%] md:w-[50%] h-[20vh] mx-auto bg-[#EAECF0] my-[2em] ">
-        <div className=" flex justify-center items-center bg-[#175CD3] p-[1em] rounded-full ">
-          <AddOutlinedIcon sx={{ color: "white" }} />
+    <div className="body_main space-y-[3em] px-[1em] w-full md:w-[80%] mt-10  mx-auto">
+      <div className="space-y-[1em]">
+        <div className="hidden md:flex">
+          <CurrentNav />
+        </div>
+
+        <h1 className="text-[1.1em] font-bold">
+          Uploaded Account Statement Ready!
+        </h1>
+
+        <div className="flex justify-between items-center ">
+          <div className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs bg-[#D1E9FF] text-[#1570EF] ">
+            <p className="font-bold">Display</p>
+            <ExpandMoreIcon />
+          </div>
+          <div className="flex items-center px-[0.8em] py-[0.4em] rounded-lg text-xs bg-[#D1E9FF] text-[#1570EF] ">
+            <p className="font-bold">Sort by</p>
+            <FilterListIcon />
+          </div>
+        </div>
+        <div>
+          <h1 className="text-sm font-semibold">Recent Transactions</h1>
         </div>
       </div>
-      <button className="bg-[#1849A9] hover:bg-[#516ba0] text-white text-sm mx-auto py-2 px-2 active:color-#1849A9">
-        Sync to Database
-      </button>
+
+      <Transactions />
 
       {/* modal here */}
-      <div className="hidden underlay w-full">
-        <div className="flex justify-center align-center text-center bg-[#D0D5DD] mt-20 md:mx-[20%] md:w-[60%]  p-[2em] px-[3em] h-[400px]">
-          <div className="overlay bg-[#EAECF0] py-[1em] px-[3em] w-[70%] md:w-[60%] mx-auto ">
-            <h1 className="my-[2em]">Uploading Sales Record</h1>
-            <div>
-              <ProgressBar />{" "}
-            </div>
+      <div className="space-y-[1em] w-full">
+        <h1 className="text-[1.5em] font-bold">Next, upload Sales Record</h1>
+        <div className=" text-center flex flex-col justify-center items-center mx-auto bg-[#F2F4F7] py-[4em] px-[1em] w-full md:w-[60%] space-y-3 border border-black border-dashed ">
+          <CloudUploadIcon sx={{ fontSize: "5em", color: "#2E90FA" }} />
+          <p>Drag and drop your file in this gray area</p>
+          <p>OR</p>
+          <div>
+            <button className="bg-white p-[1em] rounded-lg ">
+              Browse Files{" "}
+            </button>
           </div>
         </div>
       </div>
       {/* modal ends here */}
+      <div className="flex justify-center ">
+        <button className="bg-[#1849A9] hover:bg-[#516ba0] text-white text-sm py-2 px-2   md:w-[20%] active:color-#1849A9">
+          Sync to Database
+        </button>
+      </div>
     </div>
   );
 }

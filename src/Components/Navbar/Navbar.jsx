@@ -20,7 +20,7 @@ import { useAuth } from "../../Store/Context";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius:  "10px",
+  borderRadius: "10px",
   color: "#667085",
   backgroundColor: "white",
   "&:hover": {
@@ -167,8 +167,9 @@ export default function Navbar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={clickHandler}
           >
-            <MenuIcon onClick={clickHandler} />
+            <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
