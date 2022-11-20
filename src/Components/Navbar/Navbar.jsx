@@ -3,16 +3,17 @@ import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 import { Badge, IconButton } from "@mui/material";
 import "./navbar.css";
 import logo from "../../Components/Assest/Img/Logo White.png";
 import { useAuth } from "../../Store/Context.js";
 
 function Navbar() {
-  const { clickHandler } = useAuth();
+  const { clickHandler, isClicked, setIsClicked } = useAuth();
   return (
     <>
-      <div className="navbar hidden w-full fixed  top-0 z-10 md:flex justify-between items-center h-[7vh] bg-[#1849A9] text-white px-[0.5em] lg:px-[2em] ">
+      <div className="navbar hidden w-full fixed  top-0 z-10 md:flex justify-between items-center h-[7vh] bg-[#1570EF] text-white px-[0.5em] lg:px-[2em] ">
         {/* ///////////////////////// */}
         {/* section1 */}
         <div className="flex justify-between items-center md:w-[45%] lg:w-[30%]">
@@ -52,9 +53,7 @@ function Navbar() {
           </div>
           <div className="icons">
             <IconButton>
-              <Badge badgeContent={4} color="secondary">
-                <GridViewOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
-              </Badge>
+              <GridViewOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
             </IconButton>
           </div>
         </div>
@@ -62,7 +61,7 @@ function Navbar() {
       </div>
 
       {/* nav for mobile */}
-      <div className="navbar-mobile flex justify-between items-center h-[7vh] bg-[#1849A9] text-white  px-[1em] ">
+      <div className="navbar-mobile flex justify-between items-center h-[7vh] bg-[#1570EF] text-white  px-[1em] ">
         <div className="ham">
           <IconButton onClick={clickHandler}>
             <MenuOutlinedIcon sx={{ color: "#fff" }} />
@@ -90,22 +89,30 @@ function Navbar() {
           </div>
           <div className="icons">
             <IconButton>
-              <Badge badgeContent={4} color="error">
-                <GridViewOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
-              </Badge>
+              <GridViewOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
             </IconButton>
           </div>
         </div>
-        <div className="hidden navitems-movile">
-          <ul>
-            <li>About Us</li>
-            <li>FAQs</li>
-            <li>Resources</li>
-            <li>GUILDES</li>
-            <li>BLOG</li>
-
-          </ul>
-        </div>
+        {!isClicked && (
+          <div className=" md:hidden navitems-mobile absolute left-0 top-[4.8em] z-10 space-y-[2em] bg-white text-black w-full mx-auto text-center pt-[1em] pb-[2em] ">
+            <ul className="space-y-[2em]">
+              <li
+                className="absolute left-[4em]"
+                onClick={() => setIsClicked(true)}
+              >
+                <CloseIcon sx={{ color: "#1570EF" }} />
+              </li>
+              <li>About Us</li>
+              <li>FAQs</li>
+              <li>Resources</li>
+              <li>GUILDES</li>
+              <li>BLOG</li>
+            </ul>
+            <button className="bg-[#2E90FA] text-white p-[0.8em] rounded-md">
+              Get Started
+            </button>
+          </div>
+        )}
         {/* navbar icons */}
       </div>
     </>

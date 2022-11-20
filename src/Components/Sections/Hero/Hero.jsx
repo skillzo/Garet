@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CurrentNav from "../../Navbar/CurrentNav";
 import Transactions from "../Transactions/Transactions";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -6,10 +6,16 @@ import "./Hero.css";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 
 function Hero() {
+  const [showDisplay, setShowDisplay] = useState(false);
+  const [showSort, setShowSortDisplay] = useState(false);
+  const clickShowDisplayHandler = () => {
+    showDisplay === false ? setShowDisplay(true) : setShowDisplay(false);
+  };
+  const clickShowSortHandler = () => {
+    showSort === false ? setShowSortDisplay(true) : setShowSortDisplay(false);
+  };
   return (
     <div className="body_main space-y-[2em] px-[1em] w-full md:w-[80%] mt-10  mx-auto">
       <div className="space-y-[1em]">
@@ -22,25 +28,58 @@ function Hero() {
         </h1>
 
         <div className="flex justify-between items-center ">
-          <div className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] ">
+          <div
+            onClick={clickShowDisplayHandler}
+            className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] "
+          >
             <p className="font-bold">Display</p>
             <ExpandMoreIcon />
           </div>
-          <div className=" hidden md:flex items-center">
-            <div className="flex items-center px-[0.8em] py-[0.4em] rounded-lg  md:bg-white text-xs bg-[#D1E9FF] text-[#1570EF] ">
-              <p className="font-bold">Sort by</p>
-              <FilterListIcon />
-            </div>
-            <div className="flex marker:">
-              <MenuOutlinedIcon />
-              <GridViewOutlinedIcon />
-            </div>
+
+          <div
+            onClick={clickShowSortHandler}
+            className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] "
+          >
+            <p className="font-bold">Sort by</p>
+            <FilterListIcon />
           </div>
         </div>
         <div>
           <h1 className="text-sm font-semibold">Recent Transactions</h1>
         </div>
       </div>
+      {showDisplay && (
+        <div className="border absolute bg-white z-1 w-[50%] left-[1em] top-[11em] rounded-lg p-4">
+          <div className="flex justify-between ">
+            <p>Value</p>
+            <input type="checkbox" />
+          </div>
+          <div className="flex justify-between ">
+            <p>Date</p>
+            <input type="checkbox" />
+          </div>
+          <div className="flex justify-between ">
+            <p>Name</p>
+            <input type="checkbox" />
+          </div>
+          <div className="flex justify-between ">
+            <p>Desciption</p>
+            <input type="checkbox" />
+          </div>
+        </div>
+      )}
+      {showSort && (
+        <div className="border w-[30%] absolute z-1 right-[1em] top-[11em] bg-white rounded-lg p-4">
+          <div className="flex justify-between ">
+            <p>Credit</p>
+            <input type="checkbox" />
+          </div>
+          <div className="flex justify-between ">
+            <p>Debit</p>
+            <input type="checkbox" />
+          </div>
+        </div>
+      )}
 
       <Transactions />
 

@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../Assest/Img/Logo Main Color.png";
 function Footer() {
   return (
-    <footer className=" bg-[#D1E9FF] w-full text-black p-4 sm:p-6 lg:p-[4em] dark:bg-gray-900 mt-[3em]">
+    <footer className=" bg-[#D1E9FF] w-full text-black p-4 sm:p-6 lg:p-[4em] ">
       <div className="md:flex md:justify-between">
         <div className="flex flex-col mb-6 md:mb-0 text-black ">
           <div className="logo flex items-center">
