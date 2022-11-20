@@ -6,6 +6,9 @@ import "./Hero.css";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+
 function Hero() {
   return (
     <div className="body_main space-y-[2em] px-[1em] w-full md:w-[80%] mt-10  mx-auto">
@@ -19,13 +22,19 @@ function Hero() {
         </h1>
 
         <div className="flex justify-between items-center ">
-          <div className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs bg-[#D1E9FF] text-[#1570EF] ">
+          <div className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] ">
             <p className="font-bold">Display</p>
             <ExpandMoreIcon />
           </div>
-          <div className="flex items-center px-[0.8em] py-[0.4em] rounded-lg text-xs bg-[#D1E9FF] text-[#1570EF] ">
-            <p className="font-bold">Sort by</p>
-            <FilterListIcon />
+          <div className=" hidden md:flex items-center">
+            <div className="flex items-center px-[0.8em] py-[0.4em] rounded-lg  md:bg-white text-xs bg-[#D1E9FF] text-[#1570EF] ">
+              <p className="font-bold">Sort by</p>
+              <FilterListIcon />
+            </div>
+            <div className="flex marker:">
+              <MenuOutlinedIcon />
+              <GridViewOutlinedIcon />
+            </div>
           </div>
         </div>
         <div>

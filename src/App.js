@@ -4,6 +4,7 @@ import "./App.css";
 import Sidebar from "./Components/Navbar/Sidebar";
 import Hero from "./Components/Sections/Hero/Hero";
 import { UserProvider } from "./Store/Context";
+import Footer from "../src/Components/Footer/Footer.jsx";
 
 function App() {
   // jefe code
@@ -17,6 +18,7 @@ function App() {
           <Sidebar />
           <Hero />
         </div>
+        <Footer />
       </div>
     </UserProvider>
   );

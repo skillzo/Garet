@@ -16,7 +16,7 @@ function Sidebar() {
       {/* desktop */}
 
       {!isClicked ? (
-        <div className="hidden fixed top-[4.4em] z-10 md:flex  justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[93vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
+        <div className="hidden  z-10 md:flex  justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[65vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
           <div className="flex flex-col gap-5">
             <IconButton>
               <GridOnIcon sx={{ fontSize: 20, color: "white" }} />
@@ -38,7 +38,7 @@ function Sidebar() {
           </div>
         </div>
       ) : (
-        <div className="hidden fixed top-[4.4em] z-10  md:flex justify-between flex-col side-bar w-[15%] md:w-[15%] h-[95vh] py-[3.5em] px-[1em] lg:pl-[2em] bg-[#1849A9] text-white ">
+        <div className="hidden fixed top-[4.4em] z-10  md:flex justify-between flex-col side-bar w-[15%] md:w-[15%] h-[65vh] py-[3.5em] px-[1em] lg:pl-[2em] bg-[#1849A9] text-white ">
           <div className="flex flex-col text-[0.6] md:text-[0.8em] lg:text-[1em]  md:gap-6 lg:gap-10">
             <div className="flex sidenav-nav ">
               <GridOnIcon sx={{ fontSize: 20 }} /> Dashboard

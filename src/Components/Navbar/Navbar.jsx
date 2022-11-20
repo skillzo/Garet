@@ -96,6 +96,16 @@ function Navbar() {
             </IconButton>
           </div>
         </div>
+        <div className="hidden navitems-movile">
+          <ul>
+            <li>About Us</li>
+            <li>FAQs</li>
+            <li>Resources</li>
+            <li>GUILDES</li>
+            <li>BLOG</li>
+
+          </ul>
+        </div>
         {/* navbar icons */}
       </div>
     </>
