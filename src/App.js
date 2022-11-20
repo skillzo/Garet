@@ -1,4 +1,4 @@
-import Navbar from "./Components/Navbar/Navbar";
+import Navbar, { Footer } from "./Components/Navbar/Navbar";
 
 import "./App.css";
 import Sidebar from "./Components/Navbar/Sidebar";
@@ -8,7 +8,7 @@ import { UserProvider } from "./Store/Context";
 function App() {
   return (
     <UserProvider>
-      <div className="w-full h-screen ">
+      <div className="w-full h-screen">
         <div className="navbar">
           <Navbar />
         </div>
@@ -16,6 +16,7 @@ function App() {
           <Sidebar />
           <Hero />
         </div>
+        <Footer />
       </div>
     </UserProvider>
   );
