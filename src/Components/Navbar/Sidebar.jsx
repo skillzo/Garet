@@ -7,7 +7,6 @@ import PersonIcon from "@mui/icons-material/Person";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import "./sidebar.css";
 import { useAuth } from "../../Store/Context";
-import { IconButton } from "@mui/material";
 function Sidebar() {
   const { isClicked } = useAuth();
 
