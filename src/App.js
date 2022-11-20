@@ -9,7 +9,7 @@ function App() {
   // jefe code
   return (
     <UserProvider>
-      <div className="w-full h-screen pb-[2em] ">
+      <div className="w-full h-screen ">
         <div className="navbar">
           <Navbar />
         </div>

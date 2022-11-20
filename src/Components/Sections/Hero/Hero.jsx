@@ -30,7 +30,7 @@ function Hero() {
         <div className="flex justify-between items-center ">
           <div
             onClick={clickShowDisplayHandler}
-            className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] "
+            className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs border md:bg-white bg-[#D1E9FF] text-[#1570EF] "
           >
             <p className="font-bold">Display</p>
             <ExpandMoreIcon />
@@ -38,7 +38,7 @@ function Hero() {
 
           <div
             onClick={clickShowSortHandler}
-            className="flex  justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] "
+            className="flex  border justify-between items-center px-[0.8em] py-[0.4em] rounded-lg text-xs md:bg-white bg-[#D1E9FF] text-[#1570EF] "
           >
             <p className="font-bold">Sort by</p>
             <FilterListIcon />
@@ -49,7 +49,7 @@ function Hero() {
         </div>
       </div>
       {showDisplay && (
-        <div className="border absolute bg-white z-1 w-[50%] left-[1em] top-[11em] rounded-lg p-4">
+        <div className="border absolute bg-white z-1 w-[50%] md:w-[15%] left-[1em] md:left-[7em] top-[11em]  md:top-[13em]  lg:left-[10em] rounded-lg p-4">
           <div className="flex justify-between ">
             <p>Value</p>
             <input type="checkbox" />
@@ -69,7 +69,7 @@ function Hero() {
         </div>
       )}
       {showSort && (
-        <div className="border w-[30%] absolute z-1 right-[1em] top-[11em] bg-white rounded-lg p-4">
+        <div className="border w-[30%] absolute z-1 right-[1em] top-[11em] md:top-[13em] md:w-[15%] md:right-[7em] bg-white rounded-lg p-4 lg:right-[10em]">
           <div className="flex justify-between ">
             <p>Credit</p>
             <input type="checkbox" />
@@ -91,15 +91,15 @@ function Hero() {
           <p>Drag and drop your file in this gray area</p>
           <p>OR</p>
           <div>
-            <button className=" flex bg-white p-[1em] rounded-lg ">
+            <button className=" flex bg-white p-[1em] rounded-lg border ">
               Browse File <FileCopyOutlinedIcon />
             </button>
           </div>
         </div>
       </div>
       {/* modal ends here */}
-      <div className="flex justify-center ">
-        <button className="bg-[#1849A9] hover:bg-[#516ba0] text-white text-sm py-2 px-2   md:w-[20%] active:color-#1849A9">
+      <div className="flex justify-center pb-[5em] ">
+        <button className="bg-[#1849A9]  hover:bg-[#516ba0] text-white text-sm py-2 px-2   md:w-[20%] active:color-#1849A9">
           Sync to Database
         </button>
       </div>
