@@ -16,21 +16,12 @@ function Sidebar() {
       {/* desktop */}
 
       {!isClicked ? (
-        <div className="hidden fixed top-[4em] z-10 md:flex  justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[100vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
-          <div className="flex flex-col gap-5">
-            <IconButton>
-              <GridOnIcon sx={{ fontSize: 20, color: "white" }} />
-            </IconButton>
-
-            <IconButton>
-              <AddIcon sx={{ fontSize: 20, color: "white" }} />
-            </IconButton>
-            <IconButton>
-              <StarBorderIcon sx={{ fontSize: 20, color: "white" }} />
-            </IconButton>
-            <IconButton>
-              <SettingsIcon sx={{ fontSize: 20, color: "white" }} />
-            </IconButton>
+        <div className="hidden md:flex justify-between items-center flex-col side-bar  w-[5%] md:w-[7%] lg:w-[5%] h-[95vh]  py-[4em] px-[1em]  bg-[#1849A9] text-white transition-all  ease-in-out delay-100 ">
+          <div className="flex flex-col gap-14">
+            <GridOnIcon sx={{ fontSize: 20 }} centerRipple="false" />
+            <AddIcon sx={{ fontSize: 20 }} />
+            <StarBorderIcon sx={{ fontSize: 20 }} />
+            <SettingsIcon sx={{ fontSize: 20 }} />
           </div>
           <div className="flex flex-col gap-4">
             <PersonIcon sx={{ fontSize: 20 }} />
