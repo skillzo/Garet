@@ -1,239 +1,105 @@
-import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import BedtimeIcon from "@mui/icons-material/Bedtime";
+import React from "react";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
-import { useAuth } from "../../Store/Context";
+import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { Badge, IconButton } from "@mui/material";
+import "./navbar.css";
+import logo from "../../Components/Assest/Img/Logo White.png";
+import { useAuth } from "../../Store/Context.js";
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: "10px",
-  color: "#667085",
-  backgroundColor: "white",
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
-
-export default function Navbar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+function Navbar() {
   const { clickHandler } = useAuth();
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  // mobile nav
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <BedtimeIcon />
-        </IconButton>
-        <p>Theme</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ background: "#1849A9" }}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-            onClick={clickHandler}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, fontWeight: "bold" }}
-          >
-            Act Pal
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <BedtimeIcon />
+    <>
+      <div className="navbar hidden w-full fixed  top-0 z-10 md:flex justify-between items-center h-[7vh] bg-[#1849A9] text-white px-[0.5em] lg:px-[2em] ">
+        {/* ///////////////////////// */}
+        {/* section1 */}
+        <div className="flex justify-between items-center md:w-[45%] lg:w-[30%]">
+          <div className="ham">
+            <IconButton onClick={clickHandler}>
+              <MenuOutlinedIcon sx={{ color: "#fff" }} />
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+          </div>
+          <div className="flex justify-center items-center">
+            <div className="navbar-logo flex justify-between items-center mr-[1em]">
+              <img src={logo} alt="Account Pal Logo" />
+              <p className="font-bold md:text-sm ">Account Pal</p>
+            </div>
+            <div className="navbar-search md:w-[60%] ">
+              <input type="seacrh" placeholder="Search" />
+            </div>
+          </div>
+        </div>
+        {/* section1 ends  */}
+
+        {/* /////////////////////////////////// */}
+        {/* navbar icons */}
+        <div className="navbar-icons flex items-center space-x-2 ">
+          <div className="icons">
+            <IconButton>
+              <Badge badgeContent={4} color="error">
+                <NotificationsOutlinedIcon
+                  sx={{ color: "#1570EF", fontSize: 16 }}
+                />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <GridViewOutlinedIcon />
+          </div>
+          <div className="icons">
+            <IconButton>
+              <BedtimeOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
             </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
+          </div>
+          <div className="icons">
+            <IconButton>
+              <Badge badgeContent={4} color="secondary">
+                <GridViewOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
+              </Badge>
             </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+          </div>
+        </div>
+        {/* navbar icons */}
+      </div>
+
+      {/* nav for mobile */}
+      <div className="navbar-mobile flex justify-between items-center h-[7vh] bg-[#1849A9] text-white  px-[1em] ">
+        <div className="ham">
+          <IconButton onClick={clickHandler}>
+            <MenuOutlinedIcon sx={{ color: "#fff" }} />
+          </IconButton>
+        </div>
+        <div className="navbar-logo flex justify-between items-center mr-[1em]">
+          <img src={logo} alt="Account Pal Logo" />
+          <p className="font-bold md:text-sm ">Account Pal</p>
+        </div>
+        {/* navbar icons */}
+        <div className="navbar-mobile-icons flex items-center space-x-2 ">
+          <div className="icons">
+            <IconButton>
+              <Badge badgeContent={4} color="error">
+                <NotificationsOutlinedIcon
+                  sx={{ color: "#1570EF", fontSize: 16 }}
+                />
+              </Badge>
+            </IconButton>
+          </div>
+          <div className="icons">
+            <IconButton>
+              <BedtimeOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
+            </IconButton>
+          </div>
+          <div className="icons">
+            <IconButton>
+              <Badge badgeContent={4} color="error">
+                <GridViewOutlinedIcon sx={{ color: "#1570EF", fontSize: 16 }} />
+              </Badge>
+            </IconButton>
+          </div>
+        </div>
+        {/* navbar icons */}
+      </div>
+    </>
   );
 }
+
+export default Navbar;
