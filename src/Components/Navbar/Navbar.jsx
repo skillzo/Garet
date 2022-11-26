@@ -2,39 +2,33 @@ import React from "react";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import CloseIcon from "@mui/icons-material/Close";
+
 import { Badge, IconButton } from "@mui/material";
 import "./navbar.css";
 import logo from "../../Components/Assest/Img/Logo White.png";
-import { useAuth } from "../../Store/Context.js";
 
 function Navbar() {
-  const { clickHandler, isClicked, setIsClicked } = useAuth();
   return (
     <>
-      <div className="navbar hidden w-full fixed  top-0 z-10 md:flex justify-between items-center h-[7vh] bg-[#1570EF] text-white px-[0.5em] lg:px-[2em] ">
-        {/* ///////////////////////// */}
-        {/* section1 */}
-        <div className="flex justify-between items-center md:w-[45%] lg:w-[30%]">
-          <div className="ham">
-            <IconButton onClick={clickHandler}>
-              <MenuOutlinedIcon sx={{ color: "#fff" }} />
-            </IconButton>
+      {/* navbar for desktop */}
+      <div className="navbar  hidden w-full md:fixed  top-0 z-20 md:flex justify-between items-center h-[7vh] bg-[#1570EF] text-white px-[0.5em] lg:px-[2em] ">
+        <div className="flex justify-between items-center md:w-[50%] lg:w-[30%]">
+          <div className="navbar-logo flex justify-between items-center mr-[1em] w-[10%]">
+            <img
+              src={logo}
+              alt="Account Pal Logo"
+              className="w-[40px] h-[40px] object-cover"
+            />
           </div>
-          <div className="flex justify-center items-center">
-            <div className="navbar-logo flex justify-between items-center mr-[1em]">
-              <img src={logo} alt="Account Pal Logo" />
-              <p className="font-bold md:text-sm ">Account Pal</p>
-            </div>
-            <div className="navbar-search md:w-[60%] ">
-              <input type="seacrh" placeholder="Search" />
-            </div>
+          <div className="navbar-search md:w-[70%] lg:w-[70%] ">
+            <input
+              type="seacrh"
+              placeholder="Search"
+              className=" w-full rounded-md "
+            />
           </div>
         </div>
-        {/* section1 ends  */}
 
-        {/* /////////////////////////////////// */}
         {/* navbar icons */}
         <div className="navbar-icons flex items-center space-x-2 ">
           <div className="icons">
@@ -57,19 +51,12 @@ function Navbar() {
             </IconButton>
           </div>
         </div>
-        {/* navbar icons */}
       </div>
 
       {/* nav for mobile */}
-      <div className="navbar-mobile flex justify-between items-center h-[7vh] bg-[#1570EF] text-white  px-[1em] ">
-        <div className="ham">
-          <IconButton onClick={clickHandler}>
-            <MenuOutlinedIcon sx={{ color: "#fff" }} />
-          </IconButton>
-        </div>
+      <div className="fixed  md:hidden z-20 w-full navbar-mobile flex justify-between items-center h-[7vh] bg-[#1570EF] text-white  px-[1em] ">
         <div className="navbar-logo flex justify-between items-center mr-[1em]">
-          <img src={logo} alt="Account Pal Logo" />
-          <p className="font-bold md:text-sm ">Account Pal</p>
+          <p className="md:text-sm ">Account Pal</p>
         </div>
         {/* navbar icons */}
         <div className="navbar-mobile-icons flex items-center space-x-2 ">
@@ -93,27 +80,6 @@ function Navbar() {
             </IconButton>
           </div>
         </div>
-        {!isClicked && (
-          <div className=" md:hidden navitems-mobile absolute left-0 top-[4.8em] z-10 space-y-[2em] bg-white text-black w-full mx-auto text-center pt-[1em] pb-[2em] ">
-            <ul className="space-y-[2em]">
-              <li
-                className="absolute left-[4em]"
-                onClick={() => setIsClicked(true)}
-              >
-                <CloseIcon sx={{ color: "#1570EF" }} />
-              </li>
-              <li>About Us</li>
-              <li>FAQs</li>
-              <li>Resources</li>
-              <li>GUILDES</li>
-              <li>BLOG</li>
-            </ul>
-            <button className="bg-[#2E90FA] text-white p-[0.8em] rounded-md">
-              Get Started
-            </button>
-          </div>
-        )}
-        {/* navbar icons */}
       </div>
     </>
   );

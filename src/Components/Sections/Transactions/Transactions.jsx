@@ -27,6 +27,24 @@ function Transactions() {
           />
         );
       })}
+      <div>
+        <div className="flex justify-between items-center font-semibold mt-[1em] px-[1em] border-b pb-[0.5em]">
+          <p></p>
+          <p>Total</p>
+          <p className="order-name text-[#F04438]">$115,500</p>
+          <p className="order-name text-[#12B76A]">$115,500</p>
+          <p></p>
+          <p></p>
+        </div>
+        <div className="flex justify-between items-center font-semibold mt-[1em] px-[1em] border-b pb-[0.5em]">
+          <p></p>
+          <p>Total Balance</p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p>$11,000</p>
+        </div>
+      </div>
     </div>
   );
 }
